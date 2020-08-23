@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 /**
  * 集合元素的遍历操作，使用迭代器Iterator接口
+ *  Collection接口继承了Iterable接口，Iterable中有一个Iterabor类型的属性。
  *
  * 关于迭代器的底层原理详见印象笔记和尚硅谷的课件
  *

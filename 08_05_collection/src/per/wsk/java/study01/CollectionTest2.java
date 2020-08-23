@@ -151,7 +151,7 @@ public class CollectionTest2 {
         coll.remove(new Person("Jerry",20));
         System.out.println(coll);
 
-        //8. removeAll(Collection coll1): 删除两个结合的交集 （仍是用的equals()方法）。
+        //8. removeAll(Collection coll1): 删除两个集合的交集 （仍是用的equals()方法）。
         Collection coll1 = Arrays.asList(123,456,789);
         boolean b = coll.removeAll(coll1);
         System.out.println(b);

@@ -18,7 +18,8 @@ public class TreeSetTest {
     不同的是，HashSet和LinkedHashSet是直接实现了Set接口，TreeSet是实现了Set接口的子接口。
     等于是TreeSet间接实现了Set接口。
 
-    
+    TreeSet是线程不安全的。
+
     二、TreeSet底层用的是红黑树的数据结构。
     
     三、 TreeSet本质是是排序的set集合，TreeSet在添加元素时，TreeSet只能添加相同类的对象，

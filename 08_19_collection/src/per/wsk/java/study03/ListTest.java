@@ -72,7 +72,8 @@ import java.util.List;
  *
  *      Vector与ArrayList基本类似，区别是：
  *          ①Vector是线程安全的
- *          ②底层数组长度的定义和扩容与ArrayList有些不同。
+ *          ②底层数组长度的扩容与ArrayList有些不同。
+ *
  *      Vector现在基本不使用了，如果出现多个线程操作同一个集合对象的问题，一般不通过Vector解决，
  *      一般都通过Collections解决，Collections类后面会讲到。
  *
@@ -94,13 +95,13 @@ public class ListTest {
 
     /*
     void add(int index, Object ele):在index位置插入ele元素
-    boolean addAll(int index, Collection eles):从index位置开始将eles中的所有元素添加进来
+    boolean addAll(int index, Collection eles):从当前集合的index位置开始将eles中的所有元素添加进来
     Object get(int index):获取指定index位置的元素
     int indexOf(Object obj):返回obj在集合中首次出现的位置
     int lastIndexOf(Object obj):返回obj在当前集合中末次出现的位置
     Object remove(int index):移除指定index位置的元素，并返回此元素
     Object set(int index, Object ele):设置指定index位置的元素为ele
-    List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合
+    List subList(int fromIndex, int toIndex):返回当前集合对象从fromIndex到toIndex位置的子集合（包前不包后）
 
     总结：常用方法
     增：add(Object obj)
@@ -129,6 +130,10 @@ public class ListTest {
         //index及index后面的元素都向后移动一位，详情看源码
         list.add(1,"BB");
         System.out.println(list);
+
+        //运行时此行报错 下标为6,7的位置没有任何数据，直接添加下标为8位置的数据，会出错
+        //原因详见源码
+//        list.add(8,"hello");
 
         //boolean addAll(int index, Collection eles):从index位置开始将eles中的所有元素添加进来
         //addAll 方法返回boolean类型，添加成功返回true，失败返回false。
@@ -169,6 +174,12 @@ public class ListTest {
         //如果集合中某个索引位置存储的是一个数字，要删除这个数字，需要把这个数字变为Integer类型
         //才能删除，因为如果是int类型，会调用remove(int index)方法，这样就变成了
         // 删除的是索引是这个数字的元素
+
+        //remove(Object obj)方法   删除时要求obj这个对象所在的类重写了equals()方法，因为删除时要先在集合中
+        //查找obj这个元素，查找的规则就是根据equals()查找的，如果集合中没有这个元素，就什么也没操作，如果有
+        //就从集合中删除这个元素，如果这个元素在集合中出现多次，删除下标最靠前的那个。详细原因看源码。
+        list.remove(new Person("Tom",14));
+        System.out.println(list);
 
         //Object set(int index, Object ele):设置指定index位置的元素为ele，并把之前index索引处
         //的元素返回。
@@ -227,6 +238,8 @@ public class ListTest {
 //        list.add(5,"abcd");//IndexOutOfBoundsException
 
 //        list.remove(3);//IndexOutOfBoundsException
+
+//        list.set(3,"bcde");//IndexOutOfBoundsException
     }
 
 
@@ -244,8 +257,8 @@ public class ListTest {
     }
 
     private void updateList(List list) {
-//        list.remove(2);
-        list.remove(new Integer(2));
-        list.remove(Integer.valueOf(2));
+        list.remove(2);
+//        list.remove(new Integer(2));
+//        list.remove(Integer.valueOf(2));
     }
 }

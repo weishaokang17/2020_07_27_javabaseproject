@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -17,6 +18,7 @@ import java.util.Set;
  *                                      对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
  *              |----TreeSet：可以按照添加对象的指定属性，进行排序。
  *
+ *  HashSet、LinkedHashSet都是现场不安全的，
  *
  *  1. Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。
  *
@@ -134,4 +136,7 @@ public class SetTest {
         部元素时有很好的性能
          */
     }
+
+
+
 }

@@ -25,10 +25,12 @@ import java.util.concurrent.ConcurrentHashMap;
  *              |----Properties:Hashtable的子类，线程安全的，常用来处理配置文件。
  *                              key和value都是String类型
  *
+ *      HashMap、LinkedHashMap、TreeMap都是线程不安全的。
+ *      Properties、Hashtable是线程安全的。
  *
  *      HashMap的底层：数组+链表  （jdk7及之前）
  *                    数组+链表+红黑树 （jdk 8）
- *
+ *      Hashtable、Properties底层和HashMap一样。
  *
  *  面试题：
  *  1. HashMap的底层实现原理？
@@ -79,12 +81,12 @@ import java.util.concurrent.ConcurrentHashMap;
  *      默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。
  *
  *      jdk8 相较于jdk7在底层实现方面的不同：
- *      1. new HashMap():实例化HashMap对象时底层没有创建一个长度为16的数组
- *      2. jdk 8底层的数组是：Node[],而非Entry[]，也就是说jdk8中把内部类Entry改名交了Node。
- *      3. 首次调用put()方法时，底层创建长度为16的数组
- *      4. jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。
- *         4.1 形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）
-           4.2 当数组的某一个索引位置上的元素以链表形式存在的数据个数 > 8 且当前数组的长度 > 64时，
+ *      1. new HashMap():实例化HashMap对象时底层没有创建一个长度为16的数组，
+ *          首次调用put()方法时，底层创建长度为16的数组
+ *      2. jdk 8底层的数组是：Node[],而非Entry[]，也就是说jdk8中把内部类Entry改名叫了Node。
+ *      3. jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。
+ *         3.1 形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）
+           3.2 当数组的某一个索引位置上的元素以链表形式存在的数据个数 > 8 且当前数组的长度 > 64时，
                 此时数组中此索引位置上的所有数据由之前的链表存储改为使用红黑树存储。
  *
  *

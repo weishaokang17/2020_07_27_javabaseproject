@@ -15,7 +15,11 @@ import java.util.TreeMap;
 public class TreeMapTest {
 
     //向TreeMap中添加key-value，要求key必须是由同一个类创建的对象
-    //因为要按照key进行排序：自然排序 、定制排序
+    //也就是说，一个TreeMap对象中的所有key必须都是同一个类的对象，
+    //此外，key所在的类必须实现Comparable接口，或者可以通过Comparator排序。
+    //因为TreeMap要按照key进行排序：有两种排序方式分别是 自然排序 、定制排序
+    //TreeMap底层的数据结构是红黑树
+
     //自然排序
     @Test
     public void test1(){
