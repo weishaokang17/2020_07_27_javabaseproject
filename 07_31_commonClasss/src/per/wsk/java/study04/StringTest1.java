@@ -71,7 +71,7 @@ public class StringTest1 {
         String str1 = "abc123中国";
         byte[] bytes = str1.getBytes();//使用默认的字符集，进行编码
         // （因为当前工程默认的字符集是UTF-8，UTF-8一个汉字占三个字节，故
-        // bytes这个数组里面又12个元素）。
+        // bytes这个数组里面有12个元素）。
         System.out.println(Arrays.toString(bytes));
 
         byte[] gbks = str1.getBytes("gbk");//使用gbk字符集进行编码。

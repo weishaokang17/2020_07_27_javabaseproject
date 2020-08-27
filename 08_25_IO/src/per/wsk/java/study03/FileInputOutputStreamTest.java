@@ -101,72 +101,7 @@ public class FileInputOutputStreamTest {
 
             }
         }
-
     }
 
-    //指定路径下文件的复制
-    public void copyFile(String srcPath,String destPath){
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
-        try {
-            //
-            File srcFile = new File(srcPath);
-            File destFile = new File(destPath);
-
-            //
-            fis = new FileInputStream(srcFile);
-            fos = new FileOutputStream(destFile);
-
-            //复制的过程
-            byte[] buffer = new byte[1024];
-            int len;
-            while((len = fis.read(buffer)) != -1){
-                fos.write(buffer,0,len);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if(fos != null){
-                //
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if(fis != null){
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }
-
-
-    }
-
-    @Test
-    public void testCopyFile(){
-
-        long start = System.currentTimeMillis();
-
-        String srcPath = "C:\\Users\\Administrator\\Desktop\\01-视频.avi";
-        String destPath = "C:\\Users\\Administrator\\Desktop\\02-视频.avi";
-
-
-//        String srcPath = "hello.txt";
-//        String destPath = "hello3.txt";
-
-        copyFile(srcPath,destPath);
-
-
-        long end = System.currentTimeMillis();
-
-        System.out.println("复制操作花费的时间为：" + (end - start));//618
-
-    }
 
 }

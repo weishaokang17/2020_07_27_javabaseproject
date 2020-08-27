@@ -147,10 +147,6 @@ public class FileReaderWriterTest {
     }
 
 
-
-
-
-
     /*
     从内存中写出数据到硬盘的文件里。
 
@@ -162,7 +158,7 @@ public class FileReaderWriterTest {
           但如果File所在的文件夹就是不存在的文件夹，此时不会自动创建此该文件所在的文件夹。
 
          File对应的硬盘中的文件如果存在：
-                如果流使用的构造器是：FileWriter(file,false) / FileWriter(file):对原有文件的覆盖
+                如果流使用的构造器是：FileWriter(file,false) / FileWriter(file):对原有文件内容的覆盖
                 如果流使用的构造器是：FileWriter(file,true):不会对原有文件覆盖，而是在原有文件基础上追加内容
 
      */
@@ -184,7 +180,6 @@ public class FileReaderWriterTest {
         } finally {
             //4.流资源的关闭
             if(fw != null){
-
                 try {
                     fw.close();
                 } catch (IOException e) {
@@ -192,12 +187,10 @@ public class FileReaderWriterTest {
                 }
             }
         }
-
-
     }
 
     /*
-    将一个文件内容写入到另一个文件中
+    将一个文件内容写入到另一个文件中(文件的复制)
      */
     @Test
     public void testFileReaderFileWriter() {
