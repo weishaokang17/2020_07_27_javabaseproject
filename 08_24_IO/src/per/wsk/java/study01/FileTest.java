@@ -178,7 +178,6 @@ public class FileTest {
         //相对路径，当前所在路径的上一层路径
         File file1 = new File("..\\");
 
-
         System.out.println(file1.getPath());//..
         //输出绝对路径
         System.out.println(file1.getAbsolutePath());
@@ -253,6 +252,9 @@ public class FileTest {
     其实这个方法类似于剪切。
      比如：file1.renameTo(file2)为例：
         要想保证返回true,需要file1在硬盘中是存在的，且file2不能在硬盘中存在。
+
+     file1.renameTo(file2)，如果file1和file2路径相同，只是文件名不同，此时相当于
+     给文件进行了重命名。
      */
     @Test
     public void test4(){
@@ -277,6 +279,9 @@ public class FileTest {
     public boolean canRead() ：判断是否可读
     public boolean canWrite() ：判断是否可写
     public boolean isHidden() ：判断是否隐藏（是否是隐藏文件）
+
+    public void setWritable():传true或false,设置是否可写
+    public void setReadable():传true或false,设置是否可读
 
     如果创建的File对象的路径不存在，以下方法全部返回false
      */

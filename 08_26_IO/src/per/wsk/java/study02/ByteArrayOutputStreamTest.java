@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 
 import org.junit.Test;
 
+/*
+ByteArrayOutputStream见IO体系图， 是字节流、处理流、输出流
+ */
 public class ByteArrayOutputStreamTest {
 
 	@Test
