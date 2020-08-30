@@ -2,11 +2,18 @@ package per.wsk.java.study02;
 
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 /**
  * 了解类的加载器
+ *
+ * 详见 尚硅谷ppt课件  第18至第26页。
+ *
  * @author shkstart
  * @create 2019 下午 2:16
  */
@@ -57,5 +64,23 @@ public class ClassLoaderTest {
         System.out.println("user = " + user + ",password = " + password);
 
     }
+
+
+    @Test
+    public void test03() throws IOException {
+//        FileInputStream inputStream = new FileInputStream("jdbc.properties");
+        FileReader reader = new FileReader("jdbc.properties");
+        Properties properties = new Properties();
+
+        properties.load(reader);
+
+        String user = properties.getProperty("user");
+        String password = properties.getProperty("password");
+
+        System.out.println(user);
+        System.out.println(password);
+
+    }
+
 
 }

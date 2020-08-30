@@ -132,9 +132,9 @@ public class ReflectionTest {
         Class clazz1 = Person.class;
         System.out.println(clazz1);
         //方式二：通过运行时类的对象,调用getClass(), getClass()是Object类中的方法。
-        Person p1 = new Person();
-        Class clazz2 = p1.getClass();
-        System.out.println(clazz2);
+//        Person p1 = new Person();
+//        Class clazz2 = p1.getClass();
+//        System.out.println(clazz2);
 
         //方式三：调用Class的静态方法：forName(String classPath)
 //        Class clazz3 = Class.forName("Person");
@@ -143,7 +143,7 @@ public class ReflectionTest {
 //        clazz3 = Class.forName("java.lang.String");
         System.out.println(clazz3);
 
-        System.out.println(clazz1 == clazz2);
+//        System.out.println(clazz1 == clazz2);
         System.out.println(clazz1 == clazz3);
 
         //方式四：使用类的加载器：ClassLoader  (了解)
