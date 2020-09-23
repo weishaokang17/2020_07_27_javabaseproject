@@ -118,7 +118,9 @@ public class LambdaTest1 {
         };
         con2.accept("一个是听得人当真了，一个是说的人当真了");
 
+        Consumer<String> con3 = s -> System.out.println(s);
 
+        con3.accept("fuck ");
     }
 
     //语法格式五：Lambda 需要两个或以上的参数，多条执行语句，并且可以有返回值
@@ -180,5 +182,6 @@ public class LambdaTest1 {
         con2.accept("一个是听得人当真了，一个是说的人当真了");
 
     }
+
 
 }

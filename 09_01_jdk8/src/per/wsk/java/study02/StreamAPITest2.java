@@ -96,8 +96,8 @@ public class StreamAPITest2 {
 
 
 //        forEach(Consumer c)——内部迭代
+//        employees.stream().forEach(System.out::println);
         employees.stream().forEach(System.out::println);
-
         //使用集合的遍历操作
         employees.forEach(System.out::println);
     }
