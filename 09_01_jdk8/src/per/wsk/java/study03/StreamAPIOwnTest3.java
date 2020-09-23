@@ -87,7 +87,6 @@ public class StreamAPIOwnTest3 {
 
         System.out.println(set1);
 
-
     }
 
 
